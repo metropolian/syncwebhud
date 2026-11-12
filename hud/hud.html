@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IronNest HUD</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hud" id="hud">
+
+    <div id="linkScreen">
+      <h2>IronNest HUD</h2>
+      <p>Enter the 6-digit Link Code from the website</p>
+      <input
+        type="text"
+        id="pinInput"
+        maxlength="6"
+        placeholder="000000"
+        autocomplete="off"
+        inputmode="numeric"
+      />
+      <button id="btnLink">Link HUD</button>
+      <div id="linkError"></div>
+    </div>
+
+    <div id="dataScreen">
+      <div class="top-bar">
+        <div class="title">IronNest HUD</div>
+        <div class="link-status" id="linkStatus">
+          <span id="linkStatusText">Connecting...</span>
+          <button id="btnChangePin">Change</button>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="card">
+          <h3>Number A</h3>
+          <div class="value" id="valA">—</div>
+        </div>
+        <div class="card">
+          <h3>Number B</h3>
+          <div class="value" id="valB">—</div>
+        </div>
+        <div class="card">
+          <h3>Sum</h3>
+          <div class="value" id="valSum">—</div>
+        </div>
+        <div class="card metric">
+          <h3 id="metricName">Metric</h3>
+          <div class="value" id="valMetric">—</div>
+        </div>
+      </div>
+
+      <div class="message-box" id="messageBox">Waiting for data from website...</div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="controller.js"></script>
+  <script src="hud.js"></script>
+  <script src="hud-listener.js"></script>
+</body>
+</html>

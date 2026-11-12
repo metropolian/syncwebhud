@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HUD Controller</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <h2>Web HUD Controller</h2>
+
+  <div class="pin-box">
+    <div>Enter this Unique Link Code on your HUD:</div>
+    <div id="pinDisplay" class="pin-code">------</div>
+    <div id="statusText" class="status">Waiting for HUD to link...</div>
+  </div>
+
+  <div class="control-group">
+    <label>Send Two Numbers</label>
+    <div class="row">
+      <div>
+        <input type="number" id="numA" placeholder="Number A" value="10" />
+      </div>
+      <div>
+        <input type="number" id="numB" placeholder="Number B" value="25" />
+      </div>
+    </div>
+    <button id="btnSendNumbers">Send Numbers to HUD</button>
+  </div>
+
+  <div class="control-group">
+    <label>Send Text / Notification</label>
+    <input type="text" id="hudMessage" placeholder="Type message..." />
+    <button id="btnSendText">Broadcast Text</button>
+  </div>
+
+  <div class="control-group">
+    <label>Update Metric (Live)</label>
+    <input type="range" id="hudMetric" min="0" max="100" value="50" />
+  </div>
+
+  <div class="control-group">
+    <label>Commands</label>
+    <button id="btnAlert" class="danger">Trigger Warning Alert</button>
+    <button id="btnClear" class="secondary">Clear HUD</button>
+  </div>
+
+  <script src="controller.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('btnSendNumbers').addEventListener('click', () => {
+      const a = document.getElementById('numA').value;
+      const b = document.getElementById('numB').value;
+      HudAPI.sendNumbers(a, b);
+    });
+  </script>
+</body>
+</html>

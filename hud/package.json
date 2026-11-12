@@ -1,0 +1,14 @@
+{
+  "name": "ironnest-hud",
+  "version": "1.0.0",
+  "description": "System hotkey pulldown HUD with remote web control",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --enable-logging"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "electron": "^33.0.0"
+  }
+}
